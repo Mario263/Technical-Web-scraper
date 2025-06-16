@@ -1,0 +1,70 @@
+{
+  "interviewing_io_blog": {
+    "name": "interviewing_io_blog",
+    "passed": false,
+    "error": "No content scraped",
+    "timestamp": "2025-06-16T11:04:35.599392"
+  },
+  "interviewing_io_guides": {
+    "name": "interviewing_io_guides",
+    "passed": false,
+    "error": "No guides scraped",
+    "timestamp": "2025-06-16T11:04:43.793151"
+  },
+  "interviewing_io_topics": {
+    "name": "interviewing_io_topics",
+    "passed": false,
+    "error": "No topics scraped",
+    "timestamp": "2025-06-16T11:04:47.149969"
+  },
+  "nil_blog": {
+    "name": "nil_blog",
+    "passed": true,
+    "content_count": 3,
+    "timestamp": "2025-06-16T11:04:57.215097"
+  },
+  "quill_blog": {
+    "name": "quill_blog",
+    "passed": true,
+    "content_count": 0,
+    "note": "Site may have no scrapeable content or anti-bot protection",
+    "timestamp": "2025-06-16T11:05:00.081861"
+  },
+  "substack": {
+    "name": "substack",
+    "passed": true,
+    "content_count": 2,
+    "timestamp": "2025-06-16T11:05:11.895568"
+  },
+  "output_format": {
+    "name": "output_format",
+    "passed": true,
+    "note": "No content to validate format",
+    "timestamp": "2025-06-16T11:05:27.966842"
+  },
+  "content_quality": {
+    "name": "content_quality",
+    "passed": true,
+    "note": "No content to validate quality",
+    "timestamp": "2025-06-16T11:05:46.083178"
+  },
+  "error_handling": {
+    "name": "error_handling",
+    "passed": true,
+    "errors": [],
+    "timestamp": "2025-06-16T11:06:25.538168"
+  },
+  "test_generic_websites": {
+    "name": "test_generic_websites",
+    "passed": false,
+    "error": "'error'",
+    "timestamp": "2025-06-16T11:06:28.406858"
+  },
+  "summary": {
+    "total_tests": 10,
+    "passed": 6,
+    "failed": 5,
+    "success_rate": 60.0,
+    "timestamp": "2025-06-16T11:06:28.406906"
+  }
+}

@@ -6,7 +6,7 @@ try:
     import sys
     sys.path.append('/Users/mario/Desktop/technical-content-scraper')
     
-    from smart_quill_scraper import test_smart_quill
+    from src.scrapers.smart_quill_scraper import test_smart_quill
     
     success = test_smart_quill()
     

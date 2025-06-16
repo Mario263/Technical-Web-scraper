@@ -51,6 +51,19 @@
       },
       "content_type": "blog",
       "enabled": true
+    },
+    "quill_blog": {
+      "base_url": "https://quill.co/blog",
+      "type": "smart_scraper",
+      "selectors": {
+        "article_links": "a[href*='/blog/']",
+        "title": "h1, .title",
+        "content": ".content, main, article",
+        "author": ".author, .byline",
+        "date": "time, .date"
+      },
+      "content_type": "blog",
+      "enabled": true
     }
   },
   "bonus_sources": {
@@ -65,7 +78,7 @@
         "date": ".pencraft"
       },
       "content_type": "blog",
-      "enabled": false
+      "enabled": true
     }
   }
 }

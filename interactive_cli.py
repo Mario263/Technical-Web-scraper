@@ -155,8 +155,12 @@ class InteractiveScraper:
             print(f"📊 Limited to {max_pages} pages")
         
         try:
-            # Scrape the website
-            content = self.scraper.scrape_website(url, max_pages=max_pages)
+            # Scrape the website, with special handling for quill.co/blog
+            if "quill.co/blog" in url:
+                from src.scrapers.smart_quill_scraper import SmartQuillScraper
+                content = SmartQuillScraper().scrape_quill_co()
+            else:
+                content = self.scraper.scrape_website(url, max_pages=max_pages)
             
             if not content:
                 print("❌ No content found or website couldn't be scraped.")
@@ -225,7 +229,11 @@ class InteractiveScraper:
             print(f"\n📄 [{i}/{len(urls)}] Scraping: {url}")
             
             try:
-                content = self.scraper.scrape_website(url, max_pages=max_pages)
+                if "quill.co/blog" in url:
+                    from src.scrapers.smart_quill_scraper import SmartQuillScraper
+                    content = SmartQuillScraper().scrape_quill_co()
+                else:
+                    content = self.scraper.scrape_website(url, max_pages=max_pages)
                 if content:
                     all_content.extend(content)
                     successful += 1
@@ -296,34 +304,43 @@ class InteractiveScraper:
     
     def run_test_suite(self):
         """Run the test suite"""
-        
+
         print("\n🧪 RUNNING TEST SUITE")
         print("-" * 30)
-        
-        confirm = input("➤ Run all tests? This may take a few minutes (y/N): ").strip().lower()
+
+        confirm = input("➤ Run all tests including Quill.co? (y/N): ").strip().lower()
         if confirm != 'y':
             print("❌ Tests cancelled.")
             return
-        
+
         try:
             from test_scraper import ScraperTestSuite
-            
+            from test_smart_quill import test_smart_quill
+
             test_suite = ScraperTestSuite()
             results = test_suite.run_all_tests()
-            
-            # Display results
+
+            # Display standard test suite results
             summary = results.get('summary', {})
             print(f"\n📊 TEST RESULTS")
             print(f"   Total Tests: {summary.get('total_tests', 0)}")
             print(f"   ✅ Passed: {summary.get('passed', 0)}")
             print(f"   ❌ Failed: {summary.get('failed', 0)}")
             print(f"   📈 Success Rate: {summary.get('success_rate', 0):.1f}%")
-            
-            # Save test results
+
+            # Save standard test results
             output_dir = OUTPUT_DIR / "test_results"
             output_dir.mkdir(exist_ok=True, parents=True)
             test_suite.save_test_results(output_dir)
-        
+
+            # Run and report the Quill test
+            print("\n🧪 Running Quill.co smart scraper test...")
+            quill_success = test_smart_quill()
+            if quill_success:
+                print("✅ Quill.co scraper passed!")
+            else:
+                print("❌ Quill.co scraper failed.")
+
         except Exception as e:
             print(f"❌ Test suite failed: {str(e)}")
             self.logger.error(f"Test suite error: {str(e)}")
@@ -340,7 +357,7 @@ class InteractiveScraper:
             formatted_item = {
                 "title": item.title or "Untitled",
                 "content": item.content or "",
-                "content_type": item.metadata.get('content_type', 'other'),
+                "content_type": getattr(item, 'content_type', item.metadata.get('content_type', 'other')),
                 "source_url": item.source_url or "",
                 "author": item.author or "",
                 "user_id": ""
