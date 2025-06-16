@@ -158,7 +158,8 @@ class InteractiveScraper:
             # Scrape the website, with special handling for quill.co/blog
             if "quill.co/blog" in url:
                 from src.scrapers.smart_quill_scraper import SmartQuillScraper
-                content = SmartQuillScraper().scrape_quill_co()
+                smart_scraper = SmartQuillScraper()
+                content = smart_scraper.scrape_quill_co()
             else:
                 content = self.scraper.scrape_website(url, max_pages=max_pages)
             
@@ -231,7 +232,8 @@ class InteractiveScraper:
             try:
                 if "quill.co/blog" in url:
                     from src.scrapers.smart_quill_scraper import SmartQuillScraper
-                    content = SmartQuillScraper().scrape_quill_co()
+                    smart_scraper = SmartQuillScraper()
+                    content = smart_scraper.scrape_quill_co()
                 else:
                     content = self.scraper.scrape_website(url, max_pages=max_pages)
                 if content:

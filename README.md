@@ -14,7 +14,7 @@
 - **🧠 Smart Content Detection**: Multiple fallback strategies ensure high success rates
 - **⚡ Enhanced Fixes Integrated**: 
   - Smart quill.co content parsing
-  - Correct Substack archive URLs (`archive?sort=new`)
+  - Correct Substack archive URLs (`archive?sort=new`)(This is for shreysubstack)
   - Enhanced interviewing.io topics extraction with clickable elements
 - **🛡️ Robust Error Handling**: Exponential backoff, retry logic, graceful failures
 - **📊 Comprehensive Testing**: Built-in test suite validates all functionality
@@ -214,13 +214,6 @@ All results are saved to the `output/` directory:
 python interactive_cli.py --url https://example.com --verbose
 ```
 
-## 🎉 Success Stories
-
-### Aline Assignment Results
-- **73 unique articles** extracted successfully
-- **95.8% success rate** across all sources  
-- **Zero manual intervention** required
-- **Production-ready reliability**
 
 ### Sources Working Perfectly
 - ✅ **interviewing.io**: All sections (blog, topics, learn)
@@ -229,22 +222,7 @@ python interactive_cli.py --url https://example.com --verbose
 - ✅ **nilmamano.com**: Complete DS&A content
 - ✅ **Book chapters**: All 8 chapters generated
 
-## 🔮 What Makes This Special
 
-### 1. **Truly Universal**
-Unlike other scrapers that work on specific sites, this adapts to ANY website automatically.
-
-### 2. **Production-Ready**
-Built with real-world reliability: retry logic, error handling, rate limiting, comprehensive testing.
-
-### 3. **Interactive Design**
-No need to remember command flags - the CLI guides you through every option.
-
-### 4. **Integrated Fixes**
-All the hard-won fixes for tricky sites like quill.co and Substack are built in.
-
-### 5. **Quality-Focused**
-Every piece of content is validated for quality before inclusion.
 
 ## 🤝 Usage Examples
 
