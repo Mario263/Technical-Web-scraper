@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Technical Content Scraper Output Schema",
+  "description": "Schema for scraped technical content output",
+  "required": ["team_id", "items"],
+  "properties": {
+    "team_id": {
+      "type": "string",
+      "description": "Identifier for the team or customer",
+      "example": "technical-content-team"
+    },
+    "items": {
+      "type": "array",
+      "description": "Array of scraped content items",
+      "items": {
+        "type": "object",
+        "required": ["title", "content"],
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Title of the content",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "content": {
+            "type": "string",
+            "description": "Main content in markdown format",
+            "minLength": 10
+          },
+          "content_type": {
+            "type": "string",
+            "enum": [
+              "blog",
+              "podcast_transcript",
+              "call_transcript",
+              "linkedin_post",
+              "reddit_comment",
+              "book",
+              "other"
+            ],
+            "description": "Type of content",
+            "default": "blog"
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Original URL of the content"
+          },
+          "author": {
+            "type": "string",
+            "description": "Author of the content",
+            "maxLength": 200
+          },
+          "user_id": {
+            "type": "string",
+            "description": "User ID if applicable"
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Additional metadata about the content",
+            "properties": {
+              "scraped_at": {
+                "type": "string",
+                "format": "date-time",
+                "description": "ISO timestamp when content was scraped"
+              },
+              "content_hash": {
+                "type": "string",
+                "description": "Hash of the content for deduplication"
+              },
+              "word_count": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Number of words in the content"
+              },
+              "estimated_reading_time": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "Estimated reading time in minutes"
+              },
+              "language": {
+                "type": "string",
+                "description": "Detected language of the content",
+                "default": "en"
+              },
+              "quality_score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Quality score of the extracted content"
+              }
+            },
+            "required": ["scraped_at", "content_hash", "word_count"]
+          }
+        }
+      }
+    }
+  }
+}

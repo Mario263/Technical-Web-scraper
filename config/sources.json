@@ -1,0 +1,71 @@
+{
+  "primary_sources": {
+    "interviewing_io_blog": {
+      "base_url": "https://interviewing.io/blog",
+      "type": "blog_listing",
+      "selectors": {
+        "article_links": "a[href*='/blog/']",
+        "title": "h1, .post-title, .entry-title",
+        "content": ".post-content, .entry-content, article",
+        "author": ".author, .byline, [rel='author']",
+        "date": ".date, .published, time"
+      },
+      "content_type": "blog",
+      "enabled": true
+    },
+    "interviewing_io_topics": {
+      "base_url": "https://interviewing.io/topics#companies",
+      "type": "guide_collection",
+      "selectors": {
+        "guide_links": "a[href*='/topics/']",
+        "title": "h1, h2.guide-title",
+        "content": ".guide-content, .topic-content",
+        "author": ".author",
+        "date": ".updated, .modified"
+      },
+      "content_type": "other",
+      "enabled": true
+    },
+    "interviewing_io_learn": {
+      "base_url": "https://interviewing.io/learn#interview-guides",
+      "type": "educational_hub",
+      "selectors": {
+        "guide_links": "a[href*='/learn/']",
+        "title": "h1, .lesson-title",
+        "content": ".lesson-content, .guide-body",
+        "author": ".instructor, .author",
+        "date": ".date"
+      },
+      "content_type": "other",
+      "enabled": true
+    },
+    "nilmamano_blog": {
+      "base_url": "https://nilmamano.com/blog/category/dsa",
+      "type": "personal_blog",
+      "selectors": {
+        "article_links": "a[href*='/blog/']",
+        "title": "h1.post-title, h1.entry-title",
+        "content": ".post-content, .entry-content",
+        "author": ".author, .byline",
+        "date": ".post-date, .entry-date"
+      },
+      "content_type": "blog",
+      "enabled": true
+    }
+  },
+  "bonus_sources": {
+    "shreycation_substack": {
+      "base_url": "https://shreycation.substack.com",
+      "type": "substack",
+      "selectors": {
+        "article_links": "a[href*='/p/']",
+        "title": "h1",
+        "content": ".body, .post-content",
+        "author": ".byline-names",
+        "date": ".pencraft"
+      },
+      "content_type": "blog",
+      "enabled": false
+    }
+  }
+}

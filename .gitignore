@@ -50,6 +50,7 @@ logs/*.log
 # Output files (keep directory structure)
 output/*.json
 !output/.gitkeep
+!logs/.gitkeep
 
 # Environment variables
 .env

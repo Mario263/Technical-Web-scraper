@@ -1,0 +1,17 @@
+# Test URLs for Batch Scraping
+# Add any website URLs here, one per line
+# Lines starting with # are comments and will be ignored
+
+# Required Aline Assignment Sources
+https://interviewing.io/blog
+https://interviewing.io/topics
+https://interviewing.io/learn
+https://nilmamano.com/blog/category/dsa
+https://quill.co/blog
+https://shreycation.substack.com/archive?sort=new
+
+# Additional Test Sites
+https://blog.github.com
+https://stackoverflow.blog
+
+# Add your own websites below:
